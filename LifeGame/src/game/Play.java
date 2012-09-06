@@ -77,7 +77,38 @@ public class Play {
             neighbours[8] = BOARD[0][0];
             return neighbours;
         }
-        
+
+        if (x > 0 && x < length && y == 0) {
+            neighbours[0] = BOARD[x - 1][length];
+            neighbours[1] = BOARD[x - 1][0];
+            neighbours[2] = BOARD[x - 1][1];
+
+            neighbours[3] = BOARD[x][length];
+            neighbours[4] = BOARD[x][0];
+            neighbours[5] = BOARD[x][1];
+
+            neighbours[6] = BOARD[x + 1][length];
+            neighbours[7] = BOARD[x + 1][0];
+            neighbours[8] = BOARD[x + 1][1];
+        }
+
+        if (x > 0 && x < length && y == length) {
+            neighbours[0] = BOARD[x - 1][length - 1];
+            neighbours[1] = BOARD[x - 1][length];
+            neighbours[2] = BOARD[x - 1][0];
+
+            neighbours[3] = BOARD[x][length - 1];
+            neighbours[4] = BOARD[x][length];
+            neighbours[5] = BOARD[x][0];
+
+            neighbours[6] = BOARD[x + 1][length -1];
+            neighbours[7] = BOARD[x + 1][length];
+            neighbours[8] = BOARD[x + 1][0];
+        }
+        //bottom
+//        if(){
+//        
+//        }
         return neighbours;
     }
 
