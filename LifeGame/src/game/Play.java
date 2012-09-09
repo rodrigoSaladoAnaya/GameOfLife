@@ -12,10 +12,6 @@ public class Play {
 
     private static int LENGTH;
     private static boolean[][] BOARD;
-    private static final char CELL_LIVE_CHAR = '*';
-    private static final char CELL_DEAD_CHAR = '-';
-    private static final boolean LIVE = true;
-    private static final boolean DEAD = false;
 
     public void setLength(int length){
         LENGTH = length;
@@ -165,43 +161,23 @@ public class Play {
     }
 
     public void nextExolution() {
-        printBoard();
         boolean[][] nextBoard = new boolean[LENGTH][LENGTH];
         for (int i = 0; i != LENGTH; i++) {
             for (int j = 0; j != LENGTH; j++) {
                 boolean[] neighbours = getNeighboursByCell(i, j);
-//                printNeighbours(neighbours);
                 World w = new World();
                 w.fillBoard(neighbours);
                 int neigthbourdCount = w.getNeighboursCount();
-//                System.out.println("Numero de vecinos: " + neigthbourdCount);
                 boolean cellHealth = w.getCellHealth();
-//                System.out.println("cellHealth[1]: " + cellHealth);
                 cellHealth = w.getHealthApplyingRules(neigthbourdCount, cellHealth);
                 w.setCellHealt(cellHealth);
-//                System.out.println("cellHealth[2]: " + cellHealth);
                 nextBoard[i][j] = cellHealth;
             }
         }
-        BOARD = nextBoard;
+        BOARD = nextBoard; 
     }
-
-    private void printNeighbours(boolean n[]) {
-        for (boolean i : n) {
-            char cellHealt = i ? CELL_LIVE_CHAR : CELL_DEAD_CHAR;
-            System.out.print(cellHealt + ", ");
-        }
-        System.out.println();
-    }
-
-    private void printBoard() {
-        for (int i = 0; i != LENGTH; i++) {
-            for (int j = 0; j != LENGTH; j++) {
-                char cellHealt = BOARD[i][j] ? CELL_LIVE_CHAR : CELL_DEAD_CHAR;
-                System.out.print(cellHealt);
-            }
-            System.out.println();
-        }
-        System.out.println("next step ...");
+    
+    public boolean[][] getActualBoard(){
+        return BOARD;
     }
 }

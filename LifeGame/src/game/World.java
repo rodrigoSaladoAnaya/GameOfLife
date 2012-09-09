@@ -15,13 +15,6 @@ public class World {
     private static boolean DEAD = false;
     private boolean[][] BOARD;
 
-//    public void nextEvolution() {
-//        boolean cellHealth = getCellHealth();
-//        int neighboursCount = getNeighboursCount();
-//        boolean health = getHealthApplyingRules(neighboursCount, cellHealth);
-//        setCellHealt(health);
-//    }
-
     public boolean getHealthApplyingRules(int neighboursCount, boolean cellHealth) {
         if (cellHealth == LIVE && neighboursCount < 2) {
             return DEAD;
@@ -35,18 +28,13 @@ public class World {
 
     public void fillBoard(boolean[] cellsHealth) {
         BOARD = new boolean[LENGTH][LENGTH];
-
-        BOARD[0][0] = cellsHealth[0];
-        BOARD[0][1] = cellsHealth[1];
-        BOARD[0][2] = cellsHealth[2];
-
-        BOARD[1][0] = cellsHealth[3];
-        BOARD[1][1] = cellsHealth[4];
-        BOARD[1][2] = cellsHealth[5];
-
-        BOARD[2][0] = cellsHealth[6];
-        BOARD[2][1] = cellsHealth[7];
-        BOARD[2][2] = cellsHealth[8];
+        int length = 3;
+        int p = 0;
+        for (int i = 0; i != length; i++) {
+            for (int j = 0; j != length; j++) {
+                BOARD[i][j] = cellsHealth[p++];
+            }
+        }
     }
 
     public boolean getCellHealth() {
@@ -59,6 +47,7 @@ public class World {
 
     public int getNeighboursCount() {
         int count = 0;
+        
         count = BOARD[0][0] ? ++count : count;
         count = BOARD[0][1] ? ++count : count;
         count = BOARD[0][2] ? ++count : count;
@@ -70,5 +59,5 @@ public class World {
         count = BOARD[2][1] ? ++count : count;
         count = BOARD[2][2] ? ++count : count;
         return count;
-    }    
+    }
 }

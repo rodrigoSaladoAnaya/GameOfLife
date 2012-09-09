@@ -908,25 +908,376 @@ public class PlayTest {
         assertTrue(Arrays.equals(p.getNeighboursByCell(0, 1), neighbours));
     }
 
-    @Test
-    public void testTextExolution() {
-        Play p = new Play();
-        p.setLength(6);
-        boolean[][] board = {
-            {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE}};
-
-        p.fillBoard(board);
-        p.nextExolution();
-        p.nextExolution();
-        p.nextExolution();
-         int n = 100;
-        while((--n) != 0){
-            p.nextExolution();
+    private boolean bidimensionalArrayEquals(boolean[][] src, boolean[][] org) {
+        int length = src.length;
+        for (int i = 0; i != length; i++) {
+            boolean isNotEquals = !Arrays.equals(src[i], org[i]);
+            if (isNotEquals) {
+                return false;
+            }
         }
+        return true;
+    }
+
+    @Test
+    public void testTextExolution_1() {
+        Play p = new Play();
+        boolean[][] board = {
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD}};
+
+        p.setLength(3);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_2() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD}};
+
+        p.setLength(3);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_3() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD}};
+
+        p.setLength(3);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_4() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, LIVE, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD}};
+
+        p.setLength(3);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_5() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, LIVE, LIVE},
+            {DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD},};
+
+        boolean[][] nextboard = {
+            {LIVE, LIVE, LIVE},
+            {LIVE, LIVE, LIVE},
+            {LIVE, LIVE, LIVE}};
+
+        p.setLength(3);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_6() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_7() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_8() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, LIVE, LIVE, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
+
+        boolean[][] nextboard = {
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_9() {
+        Play p = new Play();
+        boolean[][] board = {
+            {DEAD, DEAD, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, LIVE, DEAD}};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, LIVE, LIVE, LIVE, DEAD, DEAD},
+            {DEAD, LIVE, LIVE, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_10() {
+        Play p = new Play();
+        boolean[][] board = {
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, LIVE, LIVE, LIVE, DEAD, DEAD},
+            {DEAD, LIVE, LIVE, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD}};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, LIVE, LIVE, LIVE, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, LIVE, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, LIVE, DEAD},
+            {DEAD, DEAD, LIVE, LIVE, LIVE, DEAD}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_11() {
+        Play p = new Play();
+        boolean[][] board = {
+            {DEAD, DEAD, LIVE, LIVE, LIVE, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, LIVE, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, DEAD, DEAD, LIVE, LIVE, DEAD},
+            {DEAD, DEAD, LIVE, LIVE, LIVE, DEAD}};
+
+        boolean[][] nextboard = {
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {DEAD, DEAD, LIVE, DEAD, LIVE, LIVE},
+            {DEAD, DEAD, LIVE, DEAD, LIVE, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_12() {
+        Play p = new Play();
+        boolean[][] board = {
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {DEAD, DEAD, LIVE, DEAD, LIVE, LIVE},
+            {DEAD, DEAD, LIVE, DEAD, LIVE, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE}};
+
+        boolean[][] nextboard = {
+            {LIVE, DEAD, DEAD, DEAD, LIVE, LIVE},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {LIVE, DEAD, DEAD, DEAD, LIVE, LIVE}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+
+    @Test
+    public void testTextExolution_13() {
+        Play p = new Play();
+        boolean[][] board = {
+            {LIVE, DEAD, DEAD, DEAD, LIVE, LIVE},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {LIVE, DEAD, DEAD, DEAD, LIVE, LIVE}};
+
+        boolean[][] nextboard = {
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
+    }
+    
+    @Test
+    public void testTextExolution_14() {
+        Play p = new Play();
+        boolean[][] board = {
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD}};
+
+        boolean[][] nextboard = {
+            {LIVE, LIVE, LIVE, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, LIVE, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, LIVE},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, LIVE},
+            {DEAD, LIVE, LIVE, DEAD, DEAD, DEAD},
+            {LIVE, LIVE, LIVE, DEAD, DEAD, DEAD}};
+
+        p.setLength(6);
+        p.fillBoard(board);
+
+        p.nextExolution();
+        boolean[][] a = nextboard;
+        boolean[][] b = p.getActualBoard();
+        assertTrue(bidimensionalArrayEquals(b, a));
     }
 }
