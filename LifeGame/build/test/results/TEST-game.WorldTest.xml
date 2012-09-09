@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MacBook-Air-de-Rodrigo.local" name="game.WorldTest" tests="3" time="0.09" timestamp="2012-09-09T19:04:31">
+<testsuite errors="0" failures="0" hostname="MacBook-Air-de-Rodrigo.local" name="game.WorldTest" tests="3" time="0.084" timestamp="2012-09-09T19:35:33">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="ES" />
@@ -54,7 +54,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner game.WorldTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/rsa/Documents/repos/LifeGame/LifeGame/build/test/results/TEST-game.WorldTest.xml crashfile=/Users/rsa/Documents/repos/LifeGame/LifeGame/build/junitvmwatcher4147913418087966926.properties propsfile=/Users/rsa/Documents/repos/LifeGame/LifeGame/build/junit3069269094803144499.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner game.WorldTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/rsa/Documents/repos/LifeGame/LifeGame/build/test/results/TEST-game.WorldTest.xml crashfile=/Users/rsa/Documents/repos/LifeGame/LifeGame/build/junitvmwatcher5084844435982719079.properties propsfile=/Users/rsa/Documents/repos/LifeGame/LifeGame/build/junit6913907324273909279.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="platforms.Default_JavaFX_Platform.home" value="/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
@@ -381,8 +381,8 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
   <testcase classname="game.WorldTest" name="testRules" time="0.003" />
-  <testcase classname="game.WorldTest" name="testGetNeighboursCountgetNeighboursCount" time="0.0" />
   <testcase classname="game.WorldTest" name="testGetCellHealt" time="0.0" />
+  <testcase classname="game.WorldTest" name="testGetNeighboursCountgetNeighboursCount" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

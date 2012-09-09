@@ -28,11 +28,10 @@ public class World {
 
     public void fillBoard(boolean[] cellsHealth) {
         BOARD = new boolean[LENGTH][LENGTH];
-        int length = 3;
-        int p = 0;
-        for (int i = 0; i != length; i++) {
-            for (int j = 0; j != length; j++) {
-                BOARD[i][j] = cellsHealth[p++];
+        int cellPosition = 0;
+        for (int i = 0; i != LENGTH; i++) {
+            for (int j = 0; j != LENGTH; j++) {
+                BOARD[i][j] = cellsHealth[cellPosition++];
             }
         }
     }
@@ -47,17 +46,12 @@ public class World {
 
     public int getNeighboursCount() {
         int count = 0;
-        
-        count = BOARD[0][0] ? ++count : count;
-        count = BOARD[0][1] ? ++count : count;
-        count = BOARD[0][2] ? ++count : count;
-
-        count = BOARD[1][0] ? ++count : count;
-        count = BOARD[1][2] ? ++count : count;
-
-        count = BOARD[2][0] ? ++count : count;
-        count = BOARD[2][1] ? ++count : count;
-        count = BOARD[2][2] ? ++count : count;
+        for (int i = 0; i < LENGTH; i++) {
+            for (int j = 0; j < LENGTH; j++) {
+                if (i == 1 && j == 1) { continue; }
+                count = BOARD[i][j] ? ++count : count;
+            }
+        }
         return count;
     }
 }
