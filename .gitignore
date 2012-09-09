@@ -5,3 +5,15 @@
 *.war
 *.ear
 /LifeGame/dist/
+/Runner/JavaFXApplication1/nbproject/private/
+/Runner/JavaFXApplication1/build/
+/Runner/JavaFXApplication1/dist/
+/Runner/Runner/build/
+/Runner/Runner/dist/
+/Runner/Runner/nbproject/private/
+/Runner_/Runner/build/
+/Runner_/Runner/dist/
+/Runner_/Runner/nbproject/private/
+/Runner/build/
+/Runner/dist/
+/Runner/nbproject/private/
