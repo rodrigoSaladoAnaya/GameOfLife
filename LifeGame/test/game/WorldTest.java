@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
  */
 public class WorldTest {
 
-    private static boolean LIVE = true;
-    private static boolean DEAD = false;
+    private static final boolean LIVE = true;
+    private static final boolean DEAD = false;
 
     public WorldTest() {
     }
