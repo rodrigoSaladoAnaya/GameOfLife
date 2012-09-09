@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package game;
 
 /**
  *
- * @author rsa
+ * @author rodrigo salado anaya
  */
 public class World {
 

@@ -1,159 +1,70 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package game;
 
 /**
  *
- * @author rsa
+ * @author rodrigo salado anaya
  */
 public class Play {
 
     private static int LENGTH;
     private static boolean[][] BOARD;
 
-    public void setLength(int length){
+    public void setLength(int length) {
         LENGTH = length;
         BOARD = new boolean[LENGTH][LENGTH];
     }
-    
+
+    private boolean[] setNeighboursValues(int sec0, int sec1, int sec2, int pos0, int pos1, int pos2) {
+        int boardZise = 9;
+        boolean[] neighbours = new boolean[boardZise];
+        neighbours[0] = BOARD[sec0][pos0];
+        neighbours[1] = BOARD[sec0][pos1];
+        neighbours[2] = BOARD[sec0][pos2];
+
+        neighbours[3] = BOARD[sec1][pos0];
+        neighbours[4] = BOARD[sec1][pos1];
+        neighbours[5] = BOARD[sec1][pos2];
+
+        neighbours[6] = BOARD[sec2][pos0];
+        neighbours[7] = BOARD[sec2][pos1];
+        neighbours[8] = BOARD[sec2][pos2];
+        return neighbours;
+    }
+
     public boolean[] getNeighboursByCell(int x, int y) {
-        boolean[] neighbours = new boolean[9];
         int length = LENGTH - 1;
         if (x == 0 && y == 0) {
-            neighbours[0] = BOARD[length][length];
-            neighbours[1] = BOARD[length][0];
-            neighbours[2] = BOARD[length][1];
-
-            neighbours[3] = BOARD[0][length];
-            neighbours[4] = BOARD[0][0];
-            neighbours[5] = BOARD[0][1];
-
-            neighbours[6] = BOARD[1][length];
-            neighbours[7] = BOARD[1][0];
-            neighbours[8] = BOARD[1][1];
-            return neighbours;
+            return setNeighboursValues(length, 0, 1, length, 0, 1);
         }
 
         if (x == 0 && y == length) {
-            neighbours[0] = BOARD[length][length - 1];
-            neighbours[1] = BOARD[length][length];
-            neighbours[2] = BOARD[length][0];
-
-            neighbours[3] = BOARD[0][length - 1];
-            neighbours[4] = BOARD[0][length];
-            neighbours[5] = BOARD[0][0];
-
-            neighbours[6] = BOARD[1][length - 1];
-            neighbours[7] = BOARD[1][length];
-            neighbours[8] = BOARD[1][0];
-            return neighbours;
+            return setNeighboursValues(length, 0, 1, length - 1, length, 0);
         }
 
         if (x == length && y == 0) {
-            neighbours[0] = BOARD[length - 1][length];
-            neighbours[1] = BOARD[length - 1][0];
-            neighbours[2] = BOARD[length - 1][1];
-
-            neighbours[3] = BOARD[length][length];
-            neighbours[4] = BOARD[length][0];
-            neighbours[5] = BOARD[length][1];
-
-            neighbours[6] = BOARD[0][length];
-            neighbours[7] = BOARD[0][0];
-            neighbours[8] = BOARD[0][1];
-            return neighbours;
+            return setNeighboursValues(length - 1, length, 0, length, 0, 1);
         }
 
         if (x == length && y == length) {
-            neighbours[0] = BOARD[length - 1][length - 1];
-            neighbours[1] = BOARD[length - 1][length];
-            neighbours[2] = BOARD[length - 1][0];
-
-            neighbours[3] = BOARD[length][length - 1];
-            neighbours[4] = BOARD[length][length];
-            neighbours[5] = BOARD[length][0];
-
-            neighbours[6] = BOARD[0][length - 1];
-            neighbours[7] = BOARD[0][length];
-            neighbours[8] = BOARD[0][0];
-            return neighbours;
+            return setNeighboursValues(length - 1, length, 0, length - 1, length, 0);
         }
 
         if (x > 0 && x < length && y == 0) {
-            neighbours[0] = BOARD[x - 1][length];
-            neighbours[1] = BOARD[x - 1][0];
-            neighbours[2] = BOARD[x - 1][1];
-
-            neighbours[3] = BOARD[x][length];
-            neighbours[4] = BOARD[x][0];
-            neighbours[5] = BOARD[x][1];
-
-            neighbours[6] = BOARD[x + 1][length];
-            neighbours[7] = BOARD[x + 1][0];
-            neighbours[8] = BOARD[x + 1][1];
-            return neighbours;
+            return setNeighboursValues(x - 1, x, x + 1, length, 0, 1);
         }
 
         if (x > 0 && x < length && y == length) {
-            neighbours[0] = BOARD[x - 1][length - 1];
-            neighbours[1] = BOARD[x - 1][length];
-            neighbours[2] = BOARD[x - 1][0];
-
-            neighbours[3] = BOARD[x][length - 1];
-            neighbours[4] = BOARD[x][length];
-            neighbours[5] = BOARD[x][0];
-
-            neighbours[6] = BOARD[x + 1][length - 1];
-            neighbours[7] = BOARD[x + 1][length];
-            neighbours[8] = BOARD[x + 1][0];
-            return neighbours;
+            return setNeighboursValues(x - 1, x, x + 1, length - 1, length, 0);
         }
 
         if (x == length && y > 0 && y < length) {
-            neighbours[0] = BOARD[length - 1][y - 1];
-            neighbours[1] = BOARD[length - 1][y];
-            neighbours[2] = BOARD[length - 1][y + 1];
-
-            neighbours[3] = BOARD[length][y - 1];
-            neighbours[4] = BOARD[length][y];
-            neighbours[5] = BOARD[length][y + 1];
-
-            neighbours[6] = BOARD[0][y - 1];
-            neighbours[7] = BOARD[0][y];
-            neighbours[8] = BOARD[0][y + 1];
-            return neighbours;
+            return setNeighboursValues(length - 1, length, 0, y - 1, y, y + 1);
         }
 
         if (x == 0 && y > 0 && y < length) {
-            neighbours[0] = BOARD[length][y - 1];
-            neighbours[1] = BOARD[length][y];
-            neighbours[2] = BOARD[length][y + 1];
-
-            neighbours[3] = BOARD[x][y - 1];
-            neighbours[4] = BOARD[x][y];
-            neighbours[5] = BOARD[x][y + 1];
-
-            neighbours[6] = BOARD[x + 1][y - 1];
-            neighbours[7] = BOARD[x + 1][y];
-            neighbours[8] = BOARD[x + 1][y + 1];
-            return neighbours;
+            return setNeighboursValues(length, x, x + 1, y - 1, y, y + 1);
         }
-
-        neighbours[0] = BOARD[x - 1][y - 1];
-        neighbours[1] = BOARD[x - 1][y];
-        neighbours[2] = BOARD[x - 1][y + 1];
-
-        neighbours[3] = BOARD[x][y - 1];
-        neighbours[4] = BOARD[x][y];
-        neighbours[5] = BOARD[x][y + 1];
-
-        neighbours[6] = BOARD[x + 1][y - 1];
-        neighbours[7] = BOARD[x + 1][y];
-        neighbours[8] = BOARD[x + 1][y + 1];
-
-        return neighbours;
+        return setNeighboursValues(x - 1, x, x + 1, y - 1, y, y + 1);
     }
 
     public void fillBoard(boolean[][] board) {
@@ -174,10 +85,10 @@ public class Play {
                 nextBoard[i][j] = cellHealth;
             }
         }
-        BOARD = nextBoard; 
+        BOARD = nextBoard;
     }
-    
-    public boolean[][] getActualBoard(){
+
+    public boolean[][] getActualBoard() {
         return BOARD;
     }
 }
