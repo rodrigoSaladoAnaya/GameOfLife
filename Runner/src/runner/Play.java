@@ -10,10 +10,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- *
  * @author rodrigo salado anaya
  */
-public class Runner extends Application {
+public class Play extends Application {
 
     private static final boolean LIVE = true;
     private static final boolean DEAD = false;
@@ -86,7 +85,7 @@ public class Runner extends Application {
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
             {LIVE, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, LIVE},};
         LENGTH = initialBoard.length;
-        p.setLength(LENGTH);
+        p.setBoardLength(LENGTH);
         p.fillBoard(initialBoard);
     }
 

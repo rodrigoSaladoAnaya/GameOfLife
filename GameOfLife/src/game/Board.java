@@ -1,7 +1,6 @@
 package game;
 
 /**
- *
  * @author rodrigo salado anaya
  */
 public class Board {
@@ -9,7 +8,7 @@ public class Board {
     private static int LENGTH;
     private static boolean[][] BOARD;
 
-    public void setLength(int length) {
+    public void setBoardLength(int length) {
         LENGTH = length;
         BOARD = new boolean[LENGTH][LENGTH];
     }

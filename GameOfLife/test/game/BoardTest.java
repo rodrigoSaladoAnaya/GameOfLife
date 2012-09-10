@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package game;
 
 import java.util.Arrays;
@@ -23,7 +19,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_min_min() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -128,7 +124,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_min_max() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -222,7 +218,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_max_min() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -338,7 +334,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_max_max() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -454,7 +450,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_left() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -581,7 +577,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_right() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -697,7 +693,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_bottom() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -802,7 +798,7 @@ public class BoardTest {
     @Test
     public void testGetNeighboursByCell_top() {
         Board p = new Board();
-        p.setLength(3);
+        p.setBoardLength(3);
 
         boolean[] neighbours = {
             DEAD, DEAD, DEAD,
@@ -928,7 +924,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD}};
 
-        p.setLength(3);
+        p.setBoardLength(3);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -950,7 +946,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD}};
 
-        p.setLength(3);
+        p.setBoardLength(3);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -972,7 +968,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD}};
 
-        p.setLength(3);
+        p.setBoardLength(3);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -994,7 +990,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD}};
 
-        p.setLength(3);
+        p.setBoardLength(3);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1016,7 +1012,7 @@ public class BoardTest {
             {LIVE, LIVE, LIVE},
             {LIVE, LIVE, LIVE}};
 
-        p.setLength(3);
+        p.setBoardLength(3);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1044,7 +1040,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1072,7 +1068,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1100,7 +1096,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
             {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1128,7 +1124,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
             {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1156,7 +1152,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD, LIVE, LIVE, DEAD},
             {DEAD, DEAD, LIVE, LIVE, LIVE, DEAD}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1184,7 +1180,7 @@ public class BoardTest {
             {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
             {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1212,7 +1208,7 @@ public class BoardTest {
             {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE},
             {LIVE, DEAD, DEAD, DEAD, LIVE, LIVE}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1240,7 +1236,7 @@ public class BoardTest {
             {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},
             {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();
@@ -1268,7 +1264,7 @@ public class BoardTest {
             {DEAD, LIVE, LIVE, DEAD, DEAD, DEAD},
             {LIVE, LIVE, LIVE, DEAD, DEAD, DEAD}};
 
-        p.setLength(6);
+        p.setBoardLength(6);
         p.fillBoard(board);
 
         p.nextExolution();

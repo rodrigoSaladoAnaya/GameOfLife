@@ -1,7 +1,6 @@
 package game;
 
 /**
- *
  * @author rodrigo salado anaya
  */
 public class Cell {
