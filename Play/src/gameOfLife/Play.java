@@ -5,6 +5,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -15,9 +16,9 @@ public class Play extends Application {
 
     private static final boolean L = true; //LIVE
     private static final boolean D = false; //DEAD
-    private final int tick = 1000;
-    private static final String CELL_LIVE_CHAR = " x ";
-    private static final String CELL_DEAD_CHAR = " - ";
+    private final int tick = 100;
+    private static final String CELL_LIVE_CHAR = " X ";
+    private static final String CELL_DEAD_CHAR = "   ";
     private AnimationTimer timer;
     private static Board p = new Board();
     private static int LENGTH;
@@ -26,8 +27,9 @@ public class Play extends Application {
     public void start(Stage primaryStage) throws Exception {
         Group root = new Group();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 200, 300));
+        primaryStage.setScene(new Scene(root, 200, 290));
         final Text text = new Text();
+        text.setFont(new Font("Courier", 12.0));
         iniBoard();
         timer = getTimer(text);
         root.getChildren().add(text);
@@ -71,7 +73,6 @@ public class Play extends Application {
             boardStr += "\n";
         }
         p.nextStep();
-        System.out.println(boardStr + "===============");
         return boardStr;
     }
 
