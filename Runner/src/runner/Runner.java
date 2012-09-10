@@ -42,7 +42,7 @@ public class Runner extends Application {
     public void start(Stage primaryStage) throws Exception {
         Group root = new Group();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 100, 100));
+        primaryStage.setScene(new Scene(root, 300, 300));
         final Text text = new Text();
         iniBoard();
         timeline = new Timeline();
@@ -53,7 +53,6 @@ public class Runner extends Application {
             @Override
             public void handle(long l) {
                 text.setText(getText());
-                p.nextExolution();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
@@ -72,15 +71,17 @@ public class Runner extends Application {
     public void iniBoard() {
 
         boolean[][] initialBoard = {
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
-            {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
-            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE},
-            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, LIVE, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
-            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},};
+            {LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, LIVE, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE},};
         LENGTH = initialBoard.length;
         p.setLength(LENGTH);
         p.fillBoard(initialBoard);
@@ -89,13 +90,14 @@ public class Runner extends Application {
     public String getText() {
         boolean[][] board = p.getActualBoard();
         String boardStr = "";
-
         for (int i = 0; i != LENGTH; i++) {
             for (int j = 0; j != LENGTH; j++) {
                 boardStr += board[i][j] ? CELL_LIVE_CHAR : CELL_DEAD_CHAR;
             }
             boardStr += "\n";
         }
+        p.nextExolution();
+        System.out.println(boardStr + "===============");
         return boardStr;
     }
 }
