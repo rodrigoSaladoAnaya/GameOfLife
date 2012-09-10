@@ -11,74 +11,74 @@ import static org.junit.Assert.*;
  *
  * @author rsa
  */
-public class WorldTest {
+public class CellTest {
 
     private static final boolean LIVE = true;
     private static final boolean DEAD = false;
 
-    public WorldTest() {
+    public CellTest() {
     }
 
     @Test
     public void testRules() {
-        World w = new World();
+        Cell w = new Cell();
         //1st rule
-        assertEquals(w.getHealthApplyingRules(0, LIVE), false);
-        assertEquals(w.getHealthApplyingRules(1, LIVE), false);
+        assertEquals(w.applyRules(0, LIVE), false);
+        assertEquals(w.applyRules(1, LIVE), false);
 
         //2nd rule
-        assertEquals(w.getHealthApplyingRules(2, LIVE), true);
-        assertEquals(w.getHealthApplyingRules(3, LIVE), true);
+        assertEquals(w.applyRules(2, LIVE), true);
+        assertEquals(w.applyRules(3, LIVE), true);
 
         //3rd rule
-        assertEquals(w.getHealthApplyingRules(4, LIVE), false);
-        assertEquals(w.getHealthApplyingRules(5, LIVE), false);
-        assertEquals(w.getHealthApplyingRules(6, LIVE), false);
-        assertEquals(w.getHealthApplyingRules(7, LIVE), false);
-        assertEquals(w.getHealthApplyingRules(8, LIVE), false);
+        assertEquals(w.applyRules(4, LIVE), false);
+        assertEquals(w.applyRules(5, LIVE), false);
+        assertEquals(w.applyRules(6, LIVE), false);
+        assertEquals(w.applyRules(7, LIVE), false);
+        assertEquals(w.applyRules(8, LIVE), false);
 
         //4th rule
-        assertEquals(w.getHealthApplyingRules(3, LIVE), true);
+        assertEquals(w.applyRules(3, LIVE), true);
 
         //test False
-        assertEquals(w.getHealthApplyingRules(0, DEAD), false);
-        assertEquals(w.getHealthApplyingRules(1, DEAD), false);
-        assertEquals(w.getHealthApplyingRules(2, DEAD), false);
-        assertEquals(w.getHealthApplyingRules(4, DEAD), false);
-        assertEquals(w.getHealthApplyingRules(5, DEAD), false);
-        assertEquals(w.getHealthApplyingRules(6, DEAD), false);
-        assertEquals(w.getHealthApplyingRules(7, DEAD), false);
-        assertEquals(w.getHealthApplyingRules(8, DEAD), false);
+        assertEquals(w.applyRules(0, DEAD), false);
+        assertEquals(w.applyRules(1, DEAD), false);
+        assertEquals(w.applyRules(2, DEAD), false);
+        assertEquals(w.applyRules(4, DEAD), false);
+        assertEquals(w.applyRules(5, DEAD), false);
+        assertEquals(w.applyRules(6, DEAD), false);
+        assertEquals(w.applyRules(7, DEAD), false);
+        assertEquals(w.applyRules(8, DEAD), false);
     }
 
     @Test
     public void testGetCellHealt() {
-        World w = new World();
+        Cell w = new Cell();
 
         boolean[] cellsHealt = {
             DEAD, DEAD, DEAD,
             DEAD, LIVE, DEAD,
             DEAD, DEAD, DEAD,};
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getCellHealth(), LIVE);
 
         cellsHealt = new boolean[]{
             DEAD, DEAD, DEAD,
             DEAD, DEAD, DEAD,
             DEAD, DEAD, DEAD,};
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getCellHealth(), DEAD);
     }
 
     @Test
     public void testGetNeighboursCountgetNeighboursCount() {
-        World w = new World();
+        Cell w = new Cell();
 
         boolean[] cellsHealt = {
             DEAD, DEAD, DEAD,
             DEAD, LIVE, DEAD,
             DEAD, DEAD, DEAD,};
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 0);
 
 
@@ -87,7 +87,7 @@ public class WorldTest {
             DEAD, LIVE, DEAD,
             DEAD, DEAD, DEAD,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 1);
 
         cellsHealt = new boolean[]{
@@ -95,7 +95,7 @@ public class WorldTest {
             DEAD, LIVE, DEAD,
             DEAD, DEAD, LIVE,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 2);
 
         cellsHealt = new boolean[]{
@@ -103,7 +103,7 @@ public class WorldTest {
             DEAD, DEAD, DEAD,
             DEAD, DEAD, LIVE,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 3);
 
         cellsHealt = new boolean[]{
@@ -111,7 +111,7 @@ public class WorldTest {
             DEAD, DEAD, DEAD,
             DEAD, LIVE, LIVE,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 4);
 
         cellsHealt = new boolean[]{
@@ -119,7 +119,7 @@ public class WorldTest {
             DEAD, LIVE, DEAD,
             DEAD, LIVE, LIVE,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 5);
 
         cellsHealt = new boolean[]{
@@ -127,7 +127,7 @@ public class WorldTest {
             DEAD, LIVE, DEAD,
             LIVE, LIVE, LIVE,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 6);
 
         cellsHealt = new boolean[]{
@@ -135,7 +135,7 @@ public class WorldTest {
             LIVE, DEAD, DEAD,
             LIVE, LIVE, LIVE,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 7);
 
         cellsHealt = new boolean[]{
@@ -143,7 +143,7 @@ public class WorldTest {
             LIVE, LIVE, LIVE,
             LIVE, LIVE, LIVE,};
 
-        w.fillBoard(cellsHealt);
+        w.fillNeighbours(cellsHealt);
         assertEquals(w.getNeighboursCount(), 8);
     }
 }

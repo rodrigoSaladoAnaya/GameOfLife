@@ -9,24 +9,20 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- * X
- * 8 6
- * Y2 0 1 2 3 4 5 6 7 8
- *
- * @author rsa
+ * @author rodrigo salado anaya
  */
-public class PlayTest {
+public class BoardTest {
 
     private static final boolean LIVE = true;
     private static final boolean DEAD = false;
     private static final int LENGTH = 3 - 1;
 
-    public PlayTest() {
+    public BoardTest() {
     }
 
     @Test
     public void testGetNeighboursByCell_min_min() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -131,7 +127,7 @@ public class PlayTest {
 
     @Test
     public void testGetNeighboursByCell_min_max() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -225,7 +221,7 @@ public class PlayTest {
 
     @Test
     public void testGetNeighboursByCell_max_min() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -341,7 +337,7 @@ public class PlayTest {
 
     @Test
     public void testGetNeighboursByCell_max_max() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -457,7 +453,7 @@ public class PlayTest {
 
     @Test
     public void testGetNeighboursByCell_left() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -584,7 +580,7 @@ public class PlayTest {
 
     @Test
     public void testGetNeighboursByCell_right() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -700,7 +696,7 @@ public class PlayTest {
 
     @Test
     public void testGetNeighboursByCell_bottom() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -805,7 +801,7 @@ public class PlayTest {
 
     @Test
     public void testGetNeighboursByCell_top() {
-        Play p = new Play();
+        Board p = new Board();
         p.setLength(3);
 
         boolean[] neighbours = {
@@ -921,7 +917,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_1() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD},
@@ -943,7 +939,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_2() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, DEAD, DEAD},
             {DEAD, DEAD, DEAD},
@@ -965,7 +961,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_3() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, DEAD, DEAD},
             {DEAD, DEAD, DEAD},
@@ -987,7 +983,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_4() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, LIVE, DEAD},
             {DEAD, DEAD, DEAD},
@@ -1009,7 +1005,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_5() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, LIVE, LIVE},
             {DEAD, DEAD, DEAD},
@@ -1031,7 +1027,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_6() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
@@ -1059,7 +1055,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_7() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
@@ -1087,7 +1083,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_8() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, LIVE, LIVE, DEAD, DEAD, DEAD},
             {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
@@ -1115,7 +1111,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_9() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {DEAD, DEAD, DEAD, DEAD, LIVE, DEAD},
             {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
@@ -1143,7 +1139,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_10() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
             {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
@@ -1171,7 +1167,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_11() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {DEAD, DEAD, LIVE, LIVE, LIVE, DEAD},
             {DEAD, DEAD, DEAD, LIVE, LIVE, DEAD},
@@ -1199,7 +1195,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_12() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
             {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
@@ -1227,7 +1223,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_13() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {LIVE, DEAD, DEAD, DEAD, LIVE, LIVE},
             {LIVE, DEAD, DEAD, DEAD, DEAD, LIVE},
@@ -1255,7 +1251,7 @@ public class PlayTest {
 
     @Test
     public void testTextExolution_14() {
-        Play p = new Play();
+        Board p = new Board();
         boolean[][] board = {
             {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
             {DEAD, LIVE, DEAD, DEAD, LIVE, DEAD},

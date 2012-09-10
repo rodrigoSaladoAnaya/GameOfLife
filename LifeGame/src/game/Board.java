@@ -4,7 +4,7 @@ package game;
  *
  * @author rodrigo salado anaya
  */
-public class Play {
+public class Board {
 
     private static int LENGTH;
     private static boolean[][] BOARD;
@@ -34,7 +34,7 @@ public class Play {
         return neighbours;
     }
 
-    public boolean[] getNeighboursByCell(int x, int y) {
+    protected boolean[] getNeighboursByCell(int x, int y) {
         int length = LENGTH - 1;
 
         if (x == 0 && y == 0) {
@@ -79,13 +79,13 @@ public class Play {
         boolean[][] nextBoard = new boolean[LENGTH][LENGTH];
         for (int i = 0; i != LENGTH; i++) {
             for (int j = 0; j != LENGTH; j++) {
-                boolean[] neighbours = getNeighboursByCell(i, j);
-                World w = new World();
-                w.fillBoard(neighbours);
-                int neigthbourdCount = w.getNeighboursCount();
-                boolean cellHealth = w.getCellHealth();
-                cellHealth = w.getHealthApplyingRules(neigthbourdCount, cellHealth);
-                w.setCellHealt(cellHealth);
+                boolean[] neighbours = this.getNeighboursByCell(i, j);
+                Cell cell = new Cell();
+                cell.fillNeighbours(neighbours);
+                int neigthbourdCount = cell.getNeighboursCount();
+                boolean cellHealth = cell.getCellHealth();
+                cellHealth = cell.applyRules(neigthbourdCount, cellHealth);
+                cell.setCellHealt(cellHealth);
                 nextBoard[i][j] = cellHealth;
             }
         }

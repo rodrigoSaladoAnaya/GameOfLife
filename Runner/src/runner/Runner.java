@@ -1,6 +1,6 @@
 package runner;
 
-import game.Play;
+import game.Board;
 import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -21,7 +21,7 @@ public class Runner extends Application {
     private static final String CELL_DEAD_CHAR = "   ";
     private Timeline timeline;
     private AnimationTimer timer;
-    private static Play p = new Play();
+    private static Board p = new Board();
     private static int LENGTH;
 
     public void play() {
