@@ -89,7 +89,7 @@ public class Runner extends Application {
 
     public String getText() {
         boolean[][] board = p.getActualBoard();
-        String boardStr = "";
+        String boardStr = "\n";
         for (int i = 0; i != LENGTH; i++) {
             for (int j = 0; j != LENGTH; j++) {
                 boardStr += board[i][j] ? CELL_LIVE_CHAR : CELL_DEAD_CHAR;
