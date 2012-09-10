@@ -33,14 +33,6 @@ public class Cell {
         }
     }
 
-    public boolean getCellHealth() {
-        return BOARD[1][1];
-    }
-
-    public void setCellHealt(boolean cellHealth) {
-        BOARD[1][1] = cellHealth;
-    }
-
     public int getNeighboursCount() {
         int count = 0;
         for (int i = 0; i < size; i++) {
@@ -52,5 +44,13 @@ public class Cell {
             }
         }
         return count;
+    }
+
+    public boolean getCellHealth() {
+        return BOARD[1][1];
+    }
+
+    public void setCellHealt(boolean cellHealth) {
+        BOARD[1][1] = cellHealth;
     }
 }

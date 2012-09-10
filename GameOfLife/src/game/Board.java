@@ -8,17 +8,12 @@ public class Board {
     private static int LENGTH;
     private static boolean[][] BOARD;
 
-    public void setBoardLength(int length) {
-        LENGTH = length;
-        BOARD = new boolean[LENGTH][LENGTH];
-    }
-
     private boolean[] setNeighboursValues(
             int sec0, int sec1, int sec2,
             int pos0, int pos1, int pos2) {
 
-        int boardZise = 9;
-        boolean[] neighbours = new boolean[boardZise];
+        int boardSize = 9;
+        boolean[] neighbours = new boolean[boardSize];
         neighbours[0] = BOARD[sec0][pos0];
         neighbours[1] = BOARD[sec0][pos1];
         neighbours[2] = BOARD[sec0][pos2];
@@ -70,10 +65,6 @@ public class Board {
         return setNeighboursValues(x - 1, x, x + 1, y - 1, y, y + 1);
     }
 
-    public void fillBoard(boolean[][] board) {
-        BOARD = board;
-    }
-
     public void nextExolution() {
         boolean[][] nextBoard = new boolean[LENGTH][LENGTH];
         for (int i = 0; i != LENGTH; i++) {
@@ -89,6 +80,15 @@ public class Board {
             }
         }
         BOARD = nextBoard;
+    }
+
+    public void setBoardLength(int length) {
+        LENGTH = length;
+        BOARD = new boolean[LENGTH][LENGTH];
+    }
+
+    public void fillBoard(boolean[][] board) {
+        BOARD = board;
     }
 
     public boolean[][] getActualBoard() {
