@@ -70,7 +70,7 @@ public class Play extends Application {
             }
             boardStr += "\n";
         }
-        p.nextExolution();
+        p.nextStep();
         System.out.println(boardStr + "===============");
         return boardStr;
     }
