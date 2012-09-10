@@ -1,6 +1,5 @@
 package game;
 
-
 /**
  *
  * @author rodrigo salado anaya
@@ -18,7 +17,7 @@ public class Play {
     private boolean[] setNeighboursValues(
             int sec0, int sec1, int sec2,
             int pos0, int pos1, int pos2) {
-        
+
         int boardZise = 9;
         boolean[] neighbours = new boolean[boardZise];
         neighbours[0] = BOARD[sec0][pos0];

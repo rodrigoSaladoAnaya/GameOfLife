@@ -18,7 +18,7 @@ public class WorldTest {
 
     public WorldTest() {
     }
-    
+
     @Test
     public void testRules() {
         World w = new World();
@@ -39,7 +39,7 @@ public class WorldTest {
 
         //4th rule
         assertEquals(w.getHealthApplyingRules(3, LIVE), true);
-        
+
         //test False
         assertEquals(w.getHealthApplyingRules(0, DEAD), false);
         assertEquals(w.getHealthApplyingRules(1, DEAD), false);
@@ -86,63 +86,63 @@ public class WorldTest {
             LIVE, DEAD, DEAD,
             DEAD, LIVE, DEAD,
             DEAD, DEAD, DEAD,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 1);
-        
+
         cellsHealt = new boolean[]{
             LIVE, DEAD, DEAD,
             DEAD, LIVE, DEAD,
             DEAD, DEAD, LIVE,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 2);
-        
+
         cellsHealt = new boolean[]{
             LIVE, LIVE, DEAD,
             DEAD, DEAD, DEAD,
             DEAD, DEAD, LIVE,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 3);
-        
+
         cellsHealt = new boolean[]{
             LIVE, LIVE, DEAD,
             DEAD, DEAD, DEAD,
             DEAD, LIVE, LIVE,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 4);
-        
+
         cellsHealt = new boolean[]{
             LIVE, LIVE, LIVE,
             DEAD, LIVE, DEAD,
             DEAD, LIVE, LIVE,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 5);
-        
+
         cellsHealt = new boolean[]{
             LIVE, LIVE, LIVE,
             DEAD, LIVE, DEAD,
             LIVE, LIVE, LIVE,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 6);
-        
+
         cellsHealt = new boolean[]{
             LIVE, LIVE, LIVE,
             LIVE, DEAD, DEAD,
             LIVE, LIVE, LIVE,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 7);
-        
+
         cellsHealt = new boolean[]{
             LIVE, LIVE, LIVE,
             LIVE, LIVE, LIVE,
             LIVE, LIVE, LIVE,};
-        
+
         w.fillBoard(cellsHealt);
         assertEquals(w.getNeighboursCount(), 8);
     }

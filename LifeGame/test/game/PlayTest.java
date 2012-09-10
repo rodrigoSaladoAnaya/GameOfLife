@@ -1252,7 +1252,7 @@ public class PlayTest {
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
     }
-    
+
     @Test
     public void testTextExolution_14() {
         Play p = new Play();

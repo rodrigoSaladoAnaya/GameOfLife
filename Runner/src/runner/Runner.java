@@ -1,27 +1,24 @@
 package runner;
 
 import game.Play;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
  *
- * @author rsa
+ * @author rodrigo salado anaya
  */
 public class Runner extends Application {
 
     private static final boolean LIVE = true;
     private static final boolean DEAD = false;
-    private static final char CELL_LIVE_CHAR = '*';
-    private static final char CELL_DEAD_CHAR = '-';
+    private static final String CELL_LIVE_CHAR = " x ";
+    private static final String CELL_DEAD_CHAR = "   ";
     private Timeline timeline;
     private AnimationTimer timer;
     private static Play p = new Play();
@@ -71,17 +68,23 @@ public class Runner extends Application {
     public void iniBoard() {
 
         boolean[][] initialBoard = {
-            {LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE, DEAD},
-            {DEAD, LIVE, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE},
-            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, LIVE},};
+            {LIVE, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, LIVE, DEAD, LIVE, LIVE, LIVE, DEAD, DEAD, DEAD, LIVE, LIVE, LIVE, DEAD, LIVE, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, LIVE, LIVE, LIVE, DEAD, DEAD, DEAD, LIVE, LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, LIVE, LIVE, LIVE, DEAD, DEAD, DEAD, LIVE, LIVE, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, LIVE, DEAD, LIVE, LIVE, LIVE, DEAD, DEAD, DEAD, LIVE, LIVE, LIVE, DEAD, LIVE, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, DEAD, LIVE, DEAD, LIVE},};
         LENGTH = initialBoard.length;
         p.setLength(LENGTH);
         p.fillBoard(initialBoard);
