@@ -65,7 +65,7 @@ public class Board {
         return setNeighboursValues(x - 1, x, x + 1, y - 1, y, y + 1);
     }
 
-    public void nextExolution() {
+    public void nextStep() {
         boolean[][] nextBoard = new boolean[LENGTH][LENGTH];
         for (int i = 0; i != LENGTH; i++) {
             for (int j = 0; j != LENGTH; j++) {

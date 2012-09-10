@@ -927,7 +927,7 @@ public class BoardTest {
         p.setBoardLength(3);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -949,7 +949,7 @@ public class BoardTest {
         p.setBoardLength(3);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -971,7 +971,7 @@ public class BoardTest {
         p.setBoardLength(3);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -993,7 +993,7 @@ public class BoardTest {
         p.setBoardLength(3);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1015,7 +1015,7 @@ public class BoardTest {
         p.setBoardLength(3);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1043,7 +1043,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1071,7 +1071,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1099,7 +1099,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1127,7 +1127,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1155,7 +1155,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1183,7 +1183,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1211,7 +1211,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1239,7 +1239,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
@@ -1267,7 +1267,7 @@ public class BoardTest {
         p.setBoardLength(6);
         p.fillBoard(board);
 
-        p.nextExolution();
+        p.nextStep();
         boolean[][] a = nextboard;
         boolean[][] b = p.getActualBoard();
         assertTrue(bidimensionalArrayEquals(b, a));
