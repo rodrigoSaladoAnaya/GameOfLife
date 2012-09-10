@@ -27,31 +27,6 @@ public class Runner extends Application {
     private static Play p = new Play();
     private static int LENGTH;
 
-    private void init(Stage primaryStage) {
-        Group root = new Group();
-        primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 100, 100));
-        final Text text = new Text("".toString());
-        iniBoard();
-        final StackPane stack = new StackPane();
-        stack.getChildren().addAll(text);
-        timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.setAutoReverse(true);
-
-        timer = new AnimationTimer() {
-            @Override
-            public void handle(long l) {
-                text.setText(getText());
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
-                }
-            }
-        };
-        root.getChildren().add(stack);
-    }
-
     public void play() {
         timeline.play();
         timer.start();
@@ -65,7 +40,27 @@ public class Runner extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        init(primaryStage);
+        Group root = new Group();
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root, 100, 100));
+        final Text text = new Text();
+        iniBoard();
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setAutoReverse(true);
+
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                text.setText(getText());
+                p.nextExolution();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                }
+            }
+        };
+        root.getChildren().add(text);
         primaryStage.show();
         play();
     }
@@ -75,23 +70,23 @@ public class Runner extends Application {
     }
 
     public void iniBoard() {
-        
+
         boolean[][] initialBoard = {
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, LIVE, LIVE, DEAD, DEAD},
-            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
-            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD}};
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE},
+            {LIVE, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, LIVE, DEAD, LIVE},
+            {DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD, DEAD, DEAD},
+            {DEAD, LIVE, DEAD, DEAD, DEAD, LIVE, DEAD, DEAD, DEAD},
+            {LIVE, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD, DEAD},};
         LENGTH = initialBoard.length;
         p.setLength(LENGTH);
         p.fillBoard(initialBoard);
     }
 
     public String getText() {
-
-
-        p.nextExolution();
         boolean[][] board = p.getActualBoard();
         String boardStr = "";
 
