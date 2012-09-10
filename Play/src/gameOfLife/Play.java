@@ -17,7 +17,7 @@ public class Play extends Application {
     private static final boolean D = false; //DEAD
     private final int tick = 1000;
     private static final String CELL_LIVE_CHAR = " x ";
-    private static final String CELL_DEAD_CHAR = "   ";
+    private static final String CELL_DEAD_CHAR = " - ";
     private AnimationTimer timer;
     private static Board p = new Board();
     private static int LENGTH;
@@ -26,7 +26,7 @@ public class Play extends Application {
     public void start(Stage primaryStage) throws Exception {
         Group root = new Group();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 300, 300));
+        primaryStage.setScene(new Scene(root, 200, 300));
         final Text text = new Text();
         iniBoard();
         timer = getTimer(text);
