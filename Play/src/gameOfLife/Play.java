@@ -27,7 +27,7 @@ public class Play extends Application {
     public void start(Stage primaryStage) throws Exception {
         Group root = new Group();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 200, 290));
+        primaryStage.setScene(new Scene(root, 220, 290));
         final Text text = new Text();
         text.setFont(new Font("Courier", 12.0));
         iniBoard();
