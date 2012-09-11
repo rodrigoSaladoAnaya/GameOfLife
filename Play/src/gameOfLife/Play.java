@@ -78,7 +78,6 @@ public class Play extends Application {
 
     private AnimationTimer getTimer(final Text text) {
         return new AnimationTimer() {
-
             @Override
             public void handle(long l) {
                 text.setText(getText());
