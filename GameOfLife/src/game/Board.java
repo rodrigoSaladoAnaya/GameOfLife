@@ -28,42 +28,18 @@ public class Board {
         return neighbours;
     }
 
-    protected boolean[] getNeighboursByCell(int x, int y) {
-        int length = LENGTH - 1;
-
-        if (x == 0 && y == 0) {
-            return setNeighboursValues(length, 0, 1, length, 0, 1);
-        }
-
-        if (x == 0 && y == length) {
-            return setNeighboursValues(length, 0, 1, length - 1, length, 0);
-        }
-
-        if (x == length && y == 0) {
-            return setNeighboursValues(length - 1, length, 0, length, 0, 1);
-        }
-
-        if (x == length && y == length) {
-            return setNeighboursValues(length - 1, length, 0, length - 1, length, 0);
-        }
-
-        if (x > 0 && x < length && y == 0) {
-            return setNeighboursValues(x - 1, x, x + 1, length, 0, 1);
-        }
-
-        if (x > 0 && x < length && y == length) {
-            return setNeighboursValues(x - 1, x, x + 1, length - 1, length, 0);
-        }
-
-        if (x == length && y > 0 && y < length) {
-            return setNeighboursValues(length - 1, length, 0, y - 1, y, y + 1);
-        }
-
-        if (x == 0 && y > 0 && y < length) {
-            return setNeighboursValues(length, x, x + 1, y - 1, y, y + 1);
-        }
-        return setNeighboursValues(x - 1, x, x + 1, y - 1, y, y + 1);
+    protected boolean[] getNeighboursByCell(int x, int y) {   
+        return setNeighboursValues(before(x), x, after(x), before(y), y, after(y));
     }
+    private int before( int n ) { 
+        int length = LENGTH -1;
+        return n == 0 ? length : n - 1;
+    }
+    private int after( int n ) { 
+        int length = LENGTH -1;
+        return n == length ? 0 : n + 1;
+    }
+    
 
     public void nextStep() {
         boolean[][] nextBoard = new boolean[LENGTH][LENGTH];
