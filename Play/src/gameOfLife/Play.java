@@ -16,18 +16,18 @@ public class Play extends Application {
 
     private static final boolean L = true; //LIVE
     private static final boolean D = false; //DEAD
-    private final int tick = 100;
+    private static final int tick = 100;
     private static final String CELL_LIVE_CHAR = " X ";
     private static final String CELL_DEAD_CHAR = "   ";
-    private AnimationTimer timer;
-    private static Board p = new Board();
+    private static AnimationTimer timer;
+    private static final Board p = new Board();
     private static int LENGTH;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Group root = new Group();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 220, 290));
+        primaryStage.setScene(new Scene(root, 220, 245));
         final Text text = new Text();
         text.setFont(new Font("Courier", 12.0));
         timer = getTimer(text);
