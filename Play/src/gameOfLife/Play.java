@@ -16,7 +16,7 @@ public class Play extends Application {
 
     private static final boolean L = true; //LIVE
     private static final boolean D = false; //DEAD
-    private static final int tick = 100;
+    private static final int tick = 300;
     private static final String CELL_LIVE_CHAR = " X ";
     private static final String CELL_DEAD_CHAR = "   ";
     private static AnimationTimer timer;
@@ -40,23 +40,23 @@ public class Play extends Application {
     public void iniBoard() {
 
         boolean[][] initialBoard = {
-            {L, D, L, D, D, L, D, D, L, D, D, L, D, D, L, D, L},
             {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
-            {L, D, L, D, L, L, L, D, D, D, L, L, L, D, L, D, L},
             {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
-            {D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D},
-            {D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D},
-            {D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D},
-            {D, D, D, D, L, L, L, D, D, D, L, L, L, D, D, D, D},
             {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
-            {D, D, D, D, L, L, L, D, D, D, L, L, L, D, D, D, D},
-            {D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D},
-            {D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D},
-            {D, D, L, D, D, D, D, L, D, L, D, D, D, D, L, D, D},
             {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
-            {L, D, L, D, L, L, L, D, D, D, L, L, L, D, L, D, L},
             {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
-            {L, D, L, D, D, L, D, D, L, D, D, L, D, D, L, D, L},};
+            {D, D, D, D, D, L, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, L, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, L, L, L, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
+            {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},};
 
         LENGTH = initialBoard.length;
         p.setBoardLength(LENGTH);

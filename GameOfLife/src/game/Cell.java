@@ -11,12 +11,8 @@ public final class Cell {
     private boolean[][] BOARD;
 
     public boolean getCellHealth(boolean[] neighbours) {
-        this.fillNeighbours(neighbours);
-        int neigthbourdCount = this.getNeighboursCount();
-        boolean cellHealth = this.getCellHealth();
-        cellHealth = this.applyRules(neigthbourdCount, cellHealth);
-        this.setCellHealt(cellHealth);
-        return this.getCellHealth();
+        fillNeighbours(neighbours);
+        return this.applyRules(getNeighboursCount(), getCellHealth());
     }
 
     protected boolean applyRules(int neighbours, boolean cellHealth) {
