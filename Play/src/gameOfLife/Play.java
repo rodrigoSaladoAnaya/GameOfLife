@@ -30,10 +30,10 @@ public class Play extends Application {
         primaryStage.setScene(new Scene(root, 220, 290));
         final Text text = new Text();
         text.setFont(new Font("Courier", 12.0));
-        iniBoard();
         timer = getTimer(text);
         root.getChildren().add(text);
         primaryStage.show();
+        iniBoard();
         timer.start();
     }
 
@@ -57,7 +57,7 @@ public class Play extends Application {
             {L, D, L, D, L, L, L, D, D, D, L, L, L, D, L, D, L},
             {D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D},
             {L, D, L, D, D, L, D, D, L, D, D, L, D, D, L, D, L},};
-        
+
         LENGTH = initialBoard.length;
         p.setBoardLength(LENGTH);
         p.fillBoard(initialBoard);
@@ -76,19 +76,20 @@ public class Play extends Application {
         return boardStr;
     }
 
-   private AnimationTimer getTimer(final Text text) {
+    private AnimationTimer getTimer(final Text text) {
         return new AnimationTimer() {
-           @Override
-           public void handle(long l) {
-               text.setText(getText());
-               try {
-                   Thread.sleep(tick);
-               } catch (InterruptedException ex) {
-               }
-           }
-       };
+
+            @Override
+            public void handle(long l) {
+                text.setText(getText());
+                try {
+                    Thread.sleep(tick);
+                } catch (InterruptedException ex) {
+                }
+            }
+        };
     }
-   
+
     public static void main(String[] args) {
         launch(args);
     }

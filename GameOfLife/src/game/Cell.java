@@ -3,14 +3,23 @@ package game;
 /**
  * @author rodrigo salado anaya
  */
-public class Cell {
+public final class Cell {
 
     private final static int size = 3;
     private final static boolean LIVE = true;
     private final static boolean DEAD = false;
     private boolean[][] BOARD;
 
-    public boolean applyRules(int neighbours, boolean cellHealth) {
+    public boolean getCellHealth(boolean[] neighbours) {
+        this.fillNeighbours(neighbours);
+        int neigthbourdCount = this.getNeighboursCount();
+        boolean cellHealth = this.getCellHealth();
+        cellHealth = this.applyRules(neigthbourdCount, cellHealth);
+        this.setCellHealt(cellHealth);
+        return this.getCellHealth();
+    }
+
+    protected boolean applyRules(int neighbours, boolean cellHealth) {
         if (cellHealth == LIVE && neighbours < 2) {
             return DEAD;
         }
@@ -23,7 +32,7 @@ public class Cell {
         return LIVE;
     }
 
-    public void fillNeighbours(boolean[] cellsHealth) {
+    protected void fillNeighbours(boolean[] cellsHealth) {
         BOARD = new boolean[size][size];
         int cellPosition = 0;
         for (int i = 0; i != size; i++) {
@@ -33,7 +42,7 @@ public class Cell {
         }
     }
 
-    public int getNeighboursCount() {
+    protected int getNeighboursCount() {
         int count = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -46,11 +55,11 @@ public class Cell {
         return count;
     }
 
-    public boolean getCellHealth() {
+    protected boolean getCellHealth() {
         return BOARD[1][1];
     }
 
-    public void setCellHealt(boolean cellHealth) {
+    protected void setCellHealt(boolean cellHealth) {
         BOARD[1][1] = cellHealth;
     }
 }

@@ -69,14 +69,9 @@ public class Board {
         boolean[][] nextBoard = new boolean[LENGTH][LENGTH];
         for (int i = 0; i != LENGTH; i++) {
             for (int j = 0; j != LENGTH; j++) {
-                boolean[] neighbours = this.getNeighboursByCell(i, j);
                 Cell cell = new Cell();
-                cell.fillNeighbours(neighbours);
-                int neigthbourdCount = cell.getNeighboursCount();
-                boolean cellHealth = cell.getCellHealth();
-                cellHealth = cell.applyRules(neigthbourdCount, cellHealth);
-                cell.setCellHealt(cellHealth);
-                nextBoard[i][j] = cellHealth;
+                boolean[] neighbours = this.getNeighboursByCell(i, j);
+                nextBoard[i][j] = cell.getCellHealth(neighbours);
             }
         }
         BOARD = nextBoard;

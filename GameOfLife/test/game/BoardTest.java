@@ -1,8 +1,8 @@
 package game;
 
 import java.util.Arrays;
-import org.junit.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
 /**
  * @author rodrigo salado anaya
